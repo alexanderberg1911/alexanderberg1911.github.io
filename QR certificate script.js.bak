@@ -1,72 +1,7 @@
-/*window.onload = choosePic;
+window.onload = choosePic;
 
 var myPix = new Array("images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg","images/7.jpg","images/8.jpg","images/9.jpg","images/10.jpg","images/11.jpg","images/12.jpg","images/13.jpg","images/14.jpg","images/15.jpg");
 
 function choosePic() {
      var randomNum = Math.floor(Math.random() * myPix.length);
 	 document.getElementById("myPicture").src = myPix[randomNum];}
-	 */
-	 var id;
-var i = 0;
-var loopCount = 0;
-
-var myimages=[];
-
-// we want a clone array of your myimages[]
-// because we want modify it, and keep safe the original.
-// it will be copied later
-var clonedImages ; 
-
-myimages.push("images/1.jpg");
-myimages.push("images/2.jpg");
-myimages.push("images/3.jpg");
-myimages.push("images/4.jpg");
-myimages.push("images/5.jpg");
-myimages.push("images/6.jpg");
-//       ^
-//       |
-// Don't have to worry about images index
-// Just push in the array in the order you need.
-
-
-function ran_link(){
-  
-  // if we have no clone or clone is empty
-  // we create it
-  if(! clonedImages || ! clonedImages.length ){
-    
-    
-    if(loopCount >= 3) {
-      clearInterval(id);
-      return;
-    }
-    
-    // we create a clone of myImages
-    clonedImages = myimages.slice(0 , myimages.length);
-    loopCount= loopCount + 1;
-    
-    
-    document.body.innerHTML+=('<br> loop : ' + loopCount);
-    i=0;
-  }
-  
-  // We work here only with the existant element 
-  //                                        |
-  //                                        V
-  var ry =Math.floor(Math.random() * clonedImages.length);
-  
-  // we extract the element from the array
-  // so the array.length will be -1
-  var currentImage = clonedImages.splice(ry,1);
-  
-  // currentImage is an array of 1 element
-  // we get the value at index 0
-  var currentImageURL = currentImage[0];
-  
-  document.body.innerHTML+=('<br>' + (i++) + ' : ' + currentImageURL  + ' <==> ' + ry);
-  return cur;
-  
-}
-
-
-id = setInterval(ran_link , 500);
